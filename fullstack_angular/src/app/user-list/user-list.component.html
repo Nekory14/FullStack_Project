@@ -41,10 +41,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr style="height: 4em;" *ngFor="let user of users" [routerLink]="['/user', user.id]">
-                    <td>{{ user.typeUser ? user.typeUser.type : 'null' }}</td>                    <td>{{ user.name }}</td>
-                    <td>{{ user.firstName }}</td>
-                    <td>{{ user.email }}</td>
+                <tr style="height: 4em;" *ngFor="let user of users">
+                    <td [routerLink]="['/user', user.id]">{{ user.typeUser ? user.typeUser.type : 'null' }}</td>
+                    <td [routerLink]="['/user', user.id]">{{ user.name }}</td>
+                    <td [routerLink]="['/user', user.id]">{{ user.firstName }}</td>
+                    <td [routerLink]="['/user', user.id]">{{ user.email }}</td>
                     <td class="justify-content-center">
                         <button type="button" [routerLink]="['/editUser', user.id]" class="mx-3 button-edit rounded border-custom-blue bg-custom-blue font-weight-bold">Edit</button>
                         <button type="button" (click)="deleteUser(user.id)" class="mx-3 button-remove rounded border border-danger bg-danger text-white font-weight-bold">Remove</button>
