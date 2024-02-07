@@ -1,0 +1,17 @@
+nav {
+    padding: 1%;
+    background-color:white;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+a {
+    padding: 0.7% 4%;
+    color: black;
+    text-decoration: none;
+}
+
+.active-link {
+    border-top: 2px solid #890e54ff;
+}

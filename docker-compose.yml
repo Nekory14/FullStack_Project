@@ -1,0 +1,43 @@
+version: '3'
+services:
+        nginx:
+                container_name: nginx
+                image: nginx:1.13
+                restart: always
+                ports:
+                        - 80:80
+                        - 443:443
+                volumes:
+                        - ./nginx/conf.d:/etc/nginx/conf.d
+        angular:
+                container_name: angular
+                build: ./fullstack_angular
+                restart: always
+                ports:
+                        - 4200:4200
+                depends_on:
+                        - springboot
+        mysql:
+                container_name: mysql
+                image: mysql:latest
+                environment:
+                        MYSQL_DATABASE: fullstack_project_db
+                        MYSQL_ROOT_PASSWORD: root
+                ports:
+                        - 3306:3306
+                restart: always
+        springboot:
+                restart: always
+                build:
+                        context: ./fullstack_java
+                        dockerfile: Dockerfile-app
+                working_dir: /fullstack_java
+                volumes:
+                        - ./fullstack_java:/fullstack_java
+                        - ~/.m2:/root/.m2
+                ports:
+                        - "8080:8080"
+                depends_on:
+                        - nginx
+                        - mysql
+                command: mvn clean spring-boot:run -Dspring-boot.run.profiles=docker

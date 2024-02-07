@@ -1,0 +1,15 @@
+<div>
+    <div class="bg-custom-grey">
+        <h3 class="text-white text-center p-2">User Details</h3>
+    </div>
+    <div>
+        <form class="text-center pt-5">
+            <input type="text" id="name" name="name" class="text-center p-2 my-3 border-custom-purple text-dark" [(ngModel)]="user.name" readonly><br>
+            <input type="text" id="firstName" name="firstName" class="text-center p-2 my-3 border-custom-purple" [(ngModel)]="user.firstName" readonly><br>
+            <input type="text" id="email" name="email" class="text-center p-2 my-3 border-custom-purple" [(ngModel)]="user.email" readonly><br>
+            <input type="text" id="type" name="type" class="text-center p-2 my-3 border-custom-purple" [value]="(user.typeUser && user.typeUser.type !== null && user.typeUser.type !== undefined) ? user.typeUser.type : 'null'" readonly>
+            <br>
+            <input type="button" value="Back to user list" [routerLink]="['/userList']" class="button text-white text-center mt-3 padding-x border-0 rounded bg-custom-purple button-custom-purple">
+        </form>
+    </div>
+</div>

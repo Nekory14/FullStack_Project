@@ -1,0 +1,20 @@
+<div>
+    <div class="bg-custom-grey">
+        <h3 class="text-white text-center p-2">Add / Edit an user</h3>
+    </div>
+    <div>
+        <form (ngSubmit)="onSubmit()" class="text-center pt-5">
+            <input type="text" id="name" name="name" placeholder="Name" class="text-center p-2 my-3 border-custom-purple text-dark" [(ngModel)]="user.name"><br>
+            <input type="text" id="firstName" name="firstName" placeholder="First name" class="text-center p-2 my-3 border-custom-purple" [(ngModel)]="user.firstName"><br>
+            <input type="text" id="email" name="email" placeholder="Email" class="text-center p-2 my-3 border-custom-purple" [(ngModel)]="user.email"><br>
+            
+            <select id="type" name="type" class="text-center padding-x-select my-3 border-custom-purple" [(ngModel)]="selectedType">
+                <option [ngValue]="null" hidden disabled>Type user</option>
+                <option *ngFor="let type of types" [ngValue]="type">{{ type.type }}</option>
+            </select>
+            <br>
+
+            <input type="submit" [value]="isEditMode ? 'Update' : 'Create'" class="button text-white text-center mt-3 padding-x border-0 rounded bg-custom-purple button-custom-purple">
+        </form>
+    </div>
+</div>

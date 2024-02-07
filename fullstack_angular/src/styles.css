@@ -1,0 +1,63 @@
+.bg-custom-purple {
+    background-color: #890e54ff;
+}
+
+.bg-custom-grey {
+    background-color: #708090ff;
+}
+
+.bg-custom-blue {
+    background-color: #80a9beff;
+}
+
+.border-custom-purple {
+    border: 3px solid #890e54ff;
+}
+
+.border-custom-purple:focus, .border-custom-purple:active {
+    outline: none;
+    border-color: #890e54ff;
+}
+
+.button-custom-purple:hover  {
+    background-color: #5b0938;
+    border-color: #5b0938;
+}
+
+.border-custom-blue {
+    border: 3px solid #80a9beff;
+}
+
+::placeholder {
+    color: black;
+}
+
+button, .button {
+    font-weight: bold;
+}
+
+.padding-x {
+    padding: 0.5em 5em;
+}
+
+.button-edit {
+    padding: 0.4em 3.86em;
+}
+
+.button-edit:hover {
+    background-color: #5285a0;
+    border-color: #5285a0;
+}
+
+.button-remove {
+    padding: 0.515em 3em;
+}
+
+.button-remove:focus, .button-remove:active, .button-edit:focus, .button-edit:active, .button-custom-purple:focus, .button-custom-purple:active {
+    outline: none;
+}
+
+.padding-x-select {
+    width: 12.7em;
+    height: 2.85em;
+}

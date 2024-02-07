@@ -1,0 +1,56 @@
+<div>
+    <div class="bg-custom-grey">
+        <h3 class="text-white text-center p-2">User List</h3>
+    </div>
+    <div class="text-center pt-5">
+        <button type="button" [routerLink]="['/addUser']" class="text-white text-center p-2 px-5 border-custom-purple rounded bg-custom-purple button-custom-purple">Add an user</button>
+    </div>
+    <div class="container pt-5">
+        <table class="table-bordered table-hover text-center">
+            <thead class="bg-custom-purple">
+                <tr style="height: 3em;">
+                    <th class="text-white" style="position: relative; width: 12em;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <img src="../assets/images/up_arrow.png" width="20em" style="cursor: pointer; margin-left: 1.5em;" (click)="sortByTypeASC()">
+                            Type user
+                            <img src="../assets/images/down_arrow.png" width="20em" style="cursor: pointer; margin-right: 1.5em;" (click)="sortByTypeDESC()">
+                        </div>
+                    </th>
+                    <th class="text-white" style="position: relative; width: 10em;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <img src="../assets/images/up_arrow.png" width="20em" style="cursor: pointer; margin-left: 1.5em;" (click)="sortByNameASC()">
+                            Name
+                            <img src="../assets/images/down_arrow.png" width="20em" style="cursor: pointer; margin-right: 1.5em;" (click)="sortByNameDESC()">
+                        </div>
+                    </th>
+                    <th class="text-white" style="position: relative; width: 10em;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <img src="../assets/images/up_arrow.png" width="20em" style="cursor: pointer; margin-left: 1.5em;" (click)="sortByFirstNameASC()">
+                            First name
+                            <img src="../assets/images/down_arrow.png" width="20em" style="cursor: pointer; margin-right: 1.5em;" (click)="sortByFirstNameDESC()">
+                        </div>
+                    </th>
+                    <th class="text-white" style="position: relative; width: 13em;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <img src="../assets/images/up_arrow.png" width="20em" style="cursor: pointer; margin-left: 1.5em;" (click)="sortByEmailASC()">
+                            Email
+                            <img src="../assets/images/down_arrow.png" width="20em" style="cursor: pointer; margin-right: 1.5em;" (click)="sortByEmailDESC()">
+                        </div>
+                    </th>
+                    <th class="padding-x-buttons my-5"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="height: 4em;" *ngFor="let user of users" [routerLink]="['/user', user.id]">
+                    <td>{{ user.typeUser ? user.typeUser.type : 'null' }}</td>                    <td>{{ user.name }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td class="justify-content-center">
+                        <button type="button" [routerLink]="['/editUser', user.id]" class="mx-3 button-edit rounded border-custom-blue bg-custom-blue font-weight-bold">Edit</button>
+                        <button type="button" (click)="deleteUser(user.id)" class="mx-3 button-remove rounded border border-danger bg-danger text-white font-weight-bold">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

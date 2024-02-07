@@ -1,0 +1,41 @@
+<div>
+    <div class="bg-custom-grey">
+        <h3 class="text-white text-center p-2">Type user List</h3>
+    </div>
+    <div class="text-center pt-5">
+        <button type="button" [routerLink]="['/addTypeUser']" class="text-white text-center p-2 px-5 border-custom-purple rounded bg-custom-purple button-custom-purple">Add a type user</button>
+    </div>
+    <div class="container pt-5">
+        <table class="table-bordered table-hover custom-table mx-auto text-center">
+            <thead class="bg-custom-purple text-white">
+                <tr style="height: 3em;">
+                    <th class="text-white" style="position: relative; width: 12em;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <img src="../assets/images/up_arrow.png" width="20em" style="cursor: pointer; margin-left: 1.5em;" (click)="sortByIdASC()">
+                            Id
+                            <img src="../assets/images/down_arrow.png" width="20em" style="cursor: pointer; margin-right: 1.5em;" (click)="sortByIdDESC()">
+                        </div>
+                    </th>
+                    <th class="text-white" style="position: relative; width: 12em;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <img src="../assets/images/up_arrow.png" width="20em" style="cursor: pointer; margin-left: 1.5em;" (click)="sortByTypeUserASC()">
+                            Type user
+                            <img src="../assets/images/down_arrow.png" width="20em" style="cursor: pointer; margin-right: 1.5em;" (click)="sortByTypeUserDESC()">
+                        </div>
+                    </th>
+                    <th class="px-2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let typeUser of typeUsers">
+                    <td class="text-center">{{ typeUser.id }}</td>
+                    <td class="text-center">{{ typeUser.type }}</td>
+                    <td>
+                        <button type="button" [routerLink]="['/editTypeUser', typeUser.id]" class="mx-3 button-edit rounded border-custom-blue bg-custom-blue font-weight-bold">Edit</button>
+                        <button type="button" (click)="deleteTypeUser(typeUser.id)" class="mx-3 button-remove rounded border border-danger bg-danger text-white font-weight-bold">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

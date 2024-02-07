@@ -1,0 +1,12 @@
+<div>
+    <div class="bg-custom-grey">
+        <h3 class="text-white text-center p-2">Add / Edit a type user</h3>
+    </div>
+    <div>
+        <form (ngSubmit)="onSubmit()" #typeUserForm="ngForm" class="text-center pt-5">
+            <input type="text" id="type" name="type" placeholder="Type user" class="text-center p-2 my-3 border-custom-purple text-dark"
+            [(ngModel)]="typeUser.type"><br>
+            <input type="submit" [value]="isEditMode ? 'Update' : 'Create'" class="button text-white text-center mt-3 padding-x border-0 rounded bg-custom-purple button-custom-purple">
+        </form>
+    </div>
+</div>
